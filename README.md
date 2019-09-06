@@ -1,4 +1,4 @@
-# KY is our GUY
+# KY is our GUY (zea and lara-bo)
 # Program source reference URL 
 https://static1.squarespace.com/static/533a5f1be4b00bb34469c085/t/5ae6f3c00e2e72dfd92a15dd/1525085122048/Tamagotchi.pdf 
 https://make.techwillsaveus.com/microbit/activities/micro-pet-advanced
