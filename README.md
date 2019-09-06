@@ -11,6 +11,56 @@ Our Program’s name is Ky. The microbit acts like a pet that interacts with the
 
 ![alt text](https://raw.githubusercontent.com/ky-zl/yes/master/Screenshot%202019-09-06%20at%2022.23.25.png "Ky when he is angry")
 
+# Python Code listing
+```
+from microbit import
+
+import speech
+import music
+
+while True:
+    display.show(Image.ASLEEP)
+    sleep(2000)
+    readingx = accelerometer.get_x()
+    readingy = accelerometer.get_y()
+    readingz = accelerometer.get_z()
+    while readingx > 300 or readingy > 300 or readingz > 300:
+        display.show(Image.SAD)
+        speech.say("reeeeeeeee", pitch=255, mouth=255, throat=0, speed=255)
+        if button_a.get_presses() == 1:
+            readingx = 0
+            readingy = 0
+            readingz = 0 
+            display.show(Image.HAPPY)
+            sleep(2000)
+            display.scroll("Can I perform?")
+            sleep(2000)
+            if button_a.is_pressed():
+                display.show(Image.FABULOUS)
+                music.play(music.PRELUDE)
+            elif button_b.is_pressed():
+                display.show(Image.ANGRY)
+                music.play(music.FUNK)
+            sleep(1000)
+            display.show(Image.SKULL)
+            speech.say("Nooooooooooooooooooooooooo", pitch=0)
+            image = Image("90009:" "09090:" "00900:" "09090:" "90009")
+            display.show(image)
+            music.play(music.FUNERAL)
+            sleep(10000)
+            display.show(Image.SILLY)
+            sleep(3000)
+            display.scroll("JK!")
+            display.show(Image.HEART)
+            sleep(2000)
+            display.scroll("Thx for playing!")
+            display.show(Image.HAPPY)
+            sleep(2000)
+            music.play(music.POWER_DOWN)
+            display.scroll("I'm tired...BYE!")
+
+```
+
 # BBC Microbit sensors or characteristics used / showcased
 We made use of the accelerometer function and the buttons for our microbit. The accelerometer was used when it displayed a sad face if moved a certain amount. The buttons were used as input from the users, in the beginning of the program to calm Ky down by pressing button A and when Ky asks if he can perform. The features used in the program are images, music and speech. Ky showcases different images and expressions throughout the program. We also imported the music and speech functions, and used them during the program multiple times.
 
@@ -20,6 +70,8 @@ We made use of the accelerometer function and the buttons for our microbit. The 
 We used MU editor to test our code. The “check” function was very useful for proof-reading our code and making sure it was fine before exporting the code to the microbit. Also the “flash” function played an extremely important role for checking our code, it essentially allowed us to quickly export code to the microbit with just a simple click of a button.
 A big error we faced was effectively allowing the user to input choices via the buttons. The input/output section of the BBC microbit micropython helped with this as it gave us several options of how to make use of the buttons. We struggled with using “if button_a.is_pressed():” as the microbit wouldn’t respond to button A being pressed and would constantly repeat the same code. We couldn’t get it out of the loop. So we changed it to “if button_a.get_presses() == 1:” that worked much better with how we wanted our code to play out. We were a little confused in the beginning but it wasn’t actually a problem with our code, we just had a misunderstanding of it. Everything else went very smoothly, sometimes we thought button A or B didn’t work button but you just needed to hold it for a certain amount of time. 
 
+![alt text](https://raw.githubusercontent.com/ky-zl/yes/master/Screenshot%202019-09-06%20at%2022.23.50.png "Ky being fabulous")
+
 # List ideas to extend the project
 Add more activities:
 -Experiment and implement the “ticklish” function via the pins and program Ky to display a happy face when “tickled”.
@@ -27,5 +79,3 @@ Add more activities:
 -Have Ky make poetry by using the random module.
 -Experience random emotions that the user may have to deal with, by achieving a certain speed with the accelerometer or pressing button A or B.
 Then add spontaneity to the program, so the multiple events aren’t always in the same order and you may get different activities every time.
-
-![alt text](https://raw.githubusercontent.com/ky-zl/yes/master/Screenshot%202019-09-06%20at%2022.23.50.png "Ky being fabulous")
